@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.setting.EditProfileActivity">
+
+    <ImageButton
+        android:id="@+id/backarrow"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_margin="25dp"
+        android:contentDescription="@string/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
+        />
+
+    <ImageView
+        android:id="@+id/image_user"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="30dp"
+        android:src="@drawable/user_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backarrow"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/tv_edit_name"
+        style="@style/tvRegular16_Style"
+        android:fontFamily="@font/inter"
+        android:letterSpacing="0.2"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintTop_toBottomOf="@id/image_user"
+        app:layout_constraintStart_toStartOf="@id/backarrow"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_inputtext"
+        android:letterSpacing="0.12"
+        android:fontFamily="@font/inter"
+        android:paddingStart="10dp"
+        android:text="@string/name"
+        style="@style/tvRegular_Style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_edit_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_edit_name" />
+
+    <TextView
+        android:id="@+id/tv_edit_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_edit_phone"
+        android:letterSpacing="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:fontFamily="@font/inter"
+        style="@style/tvRegular16_Style"
+        app:layout_constraintTop_toBottomOf="@id/edit_name"
+        app:layout_constraintStart_toStartOf="@id/tv_edit_name"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_inputtext"
+        android:letterSpacing="0.12"
+        style="@style/tvRegular_Style"
+        android:paddingStart="10dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/phone_num"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_edit_phone" />
+
+    <TextView
+        android:id="@+id/tv_edit_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/tv_edit_password"
+        android:letterSpacing="0.2"
+        style="@style/tvRegular16_Style"
+        android:fontFamily="@font/inter"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/edit_phone"
+        app:layout_constraintStart_toStartOf="@id/edit_phone"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/edit_pass"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_inputtext"
+        android:letterSpacing="0.12"
+        android:paddingStart="10dp"
+        style="@style/tvRegular_Style"
+        android:fontFamily="@font/inter"
+        android:text="@string/password_edit_part"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_edit_pass" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="97dp"
+        style="@style/button_orange_style"
+        android:letterSpacing="0.2"
+        android:fontFamily="@font/inter"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_pass" />
+</androidx.constraintlayout.widget.ConstraintLayout>

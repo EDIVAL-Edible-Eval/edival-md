@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logokcl" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/darkgrey"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/roboto_bold"
+        android:letterSpacing="0.3"
+        android:text="@string/edival"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/darkgrey"
+        android:text="@string/welkom"
+        android:letterSpacing="0.14"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:letterSpacing="0.1"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/darkgrey"
+        android:text="@string/please"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/lgEmail"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="46dp"
+        android:textSize="14sp"
+        android:textColor="@color/darkgrey"
+        android:paddingStart="10dp"
+        android:background="@drawable/bg_inputtext"
+        android:letterSpacing="0.12"
+        android:hint="Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/lgPassword"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:textSize="14sp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_inputtext"
+        android:drawableRight="@drawable/showpw"
+        android:paddingRight="24dp"
+        android:inputType="textPassword"
+        android:letterSpacing="0.12"
+        android:hint="Password"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lgEmail" />
+
+    <TextView
+        android:id="@+id/forgotpw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/forgotpw"
+        android:letterSpacing="0.1"
+        android:textColor="@color/darkgrey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/lgPassword"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lgPassword" />
+
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="350dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="115dp"
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/inter"
+        android:letterSpacing="0.1"
+        android:textColor="@color/white"
+        android:text="Sign In"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/lgPassword"
+        app:layout_constraintStart_toStartOf="@+id/lgPassword"
+        app:layout_constraintTop_toBottomOf="@+id/forgotpw" />
+
+    <Button
+        android:id="@+id/btnSigninggl"
+        android:layout_width="350dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="155dp"
+        android:background="@drawable/bg_inputtext"
+        android:drawableLeft="@drawable/google"
+        android:fontFamily="@font/inter"
+        android:paddingLeft="76dp"
+        android:paddingRight="77dp"
+        android:text="Sign In with Google"
+        android:textAllCaps="false"
+        android:letterSpacing="0.08"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/lgPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lgPassword"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignin"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter"
+        android:letterSpacing="0.1"
+        android:text="@string/noaccount"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSigninggl"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/btnSigninggl"
+        app:layout_constraintTop_toBottomOf="@+id/btnSigninggl"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

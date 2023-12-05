@@ -1,0 +1,74 @@
+<resources>
+
+    <string name="app_name">Edival</string>
+    <string name="edival">EDIVAL</string>
+    <string name="welkom">Welcome Back!</string>
+    <string name="please">Please sign in to continue</string>
+    <string name="forgotpw">Forgot password?</string>
+    <string name="noaccount">Don\'t have account? Sign Up</string>
+    <string name="createacc">Create new account</string>
+    <string name="please2">Please sing up to continue</string>
+    <string name="haveaccount">Have an account? Sign In</string>
+
+    <!-- Tutorial Text Resources -->
+    <string name="skip">SKIP</string>
+    <string name="next">NEXT</string>
+    <string name="prev">PREV</string>
+    <string name="tutor1">Predict</string>
+    <string name="tutor2">Recommendation</string>
+    <string name="tutor3">Reminder</string>
+    <string name="tutor1_desc">Snap and Know. Use the camera to detect food freshness instantly</string>
+    <string name="tutor2_desc">Fresh or Not. Receive meal ideas based on food freshness predictions</string>
+    <string name="tutor3_desc">Never Waste Again. Get alerts to use or dispose of stored ingredients</string>
+
+    <!-- Setting text resources -->
+    <string name="name">Marthe Jhon</string>
+    <string name="email">mjhonnih@gmail.com</string>
+    <string name="setprofile">Edit Profile</string>
+    <string name="settheme">Theme</string>
+    <string name="setlang">Language</string>
+    <string name="back">Back</string>
+
+    <!-- Camera & Result text resources -->
+    <string name="select">Select Items</string>
+    <string name="recommen">Recommendation</string>
+    <string name="title_recommen">Lemon Chicken</string>
+    <string name="desc_recommen">Hidangan ayam yang lezat dan segar dengan rasa lemon yang khas. Ayam dimasak bersama dengan saus yang terbuat dari lemon juice, zest (kupasan kulit lemon yang beraroma), bawang putih, mentega, dan rempah-rempah. Hidangan ini memiliki rasa asam dan manis yang seimbang, serta aroma harum lemon yang memikat.</string>
+    <string name="detail_recommen">Bahan</string>
+    <string name="ingredient">Main ingredient</string>
+    <string name="ingredients">Chiken, Lemon</string>
+    <string name="phone_num">098761238</string>
+    <string name="tv_edit_name">Name</string>
+    <string name="tv_edit_phone">Phone Number</string>
+    <string name="tv_edit_password">Password</string>
+    <string name="save">Save</string>
+    <string name="result">Result</string>
+    <string name="food_name">Lemon</string>
+    <string name="recomm_type">Food</string>
+    <string name="check_detail">Check Detail</string>
+    <string name="copyright">Copyright by @Bangcor</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="eng_language">English</string>
+    <string name="id_language">Indonesia</string>
+    <string name="food3">Food 3</string>
+    <string name="food2">Food 2</string>
+    <string name="food1">Food 1</string>
+    <string name="password_edit_part">password</string>
+
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="nameFood">Nama Makanan :</string>
+    <string name="penyimpanan">Tempat penyimpanan :</string>
+    <string name="simpan">Disimpan sejak :</string>
+    <string name="expire">Tahan hingga :</string>
+    <string name="jenis">Jenis makanan :</string>
+    <string name="detail">Details :</string>
+    <string name="masa">Lewat Masa Penyimpanan</string>
+    <string name="kadaluarsa">Makanan akan segera kadaluarsa!</string>
+    <string name="notification">Apel yang kamu simpan pada tanggal 14 Oktober akan segera kadaluarsa, segera olah atau makan bahan makanan tersebut!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

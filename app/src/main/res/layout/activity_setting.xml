@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.setting.SettingActivity">
+
+    <ImageButton
+        android:id="@+id/backarrow"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_margin="25dp"
+        android:contentDescription="@string/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
+        />
+
+    <ImageView
+        android:id="@+id/image_user"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/user_image"
+        app:layout_constraintStart_toStartOf="@id/backarrow"
+        app:layout_constraintTop_toBottomOf="@id/backarrow"/>
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        style="@style/tvSubTitle_Style"
+        android:text="@string/name"
+        android:fontFamily="@font/roboto_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/image_user"
+        app:layout_constraintTop_toTopOf="@id/image_user"
+        app:layout_constraintBottom_toBottomOf="@id/tv_email"/>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        style="@style/tvRegular_Style"
+        android:fontFamily="@font/inter"
+        android:text="@string/email"
+        app:layout_constraintBottom_toBottomOf="@id/image_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/image_user"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <ImageButton
+        android:id="@+id/icon_setprofile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_edit_profile"
+        android:contentDescription="@string/setprofile"
+        app:layout_constraintStart_toStartOf="@+id/image_user"
+        app:layout_constraintTop_toBottomOf="@id/image_user"
+        android:background="@android:color/transparent"
+        />
+
+    <TextView
+        android:id="@+id/set_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setprofile"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/orange2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/icon_setprofile"
+        app:layout_constraintTop_toTopOf="@id/icon_setprofile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@id/icon_setprofile"/>
+
+    <ImageButton
+        android:id="@+id/icon_settheme"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/settheme"
+        android:src="@drawable/ic_theme"
+        app:layout_constraintStart_toStartOf="@+id/icon_setprofile"
+        app:layout_constraintTop_toBottomOf="@id/icon_setprofile" />
+
+    <TextView
+        android:id="@+id/set_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settheme"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/orange2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/icon_settheme"
+        app:layout_constraintTop_toTopOf="@id/icon_settheme"
+        app:layout_constraintBottom_toBottomOf="@id/icon_settheme"/>
+
+    <ImageButton
+        android:id="@+id/icon_setlang"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setlang"
+        android:src="@drawable/ic_language"
+        app:layout_constraintStart_toStartOf="@+id/icon_settheme"
+        app:layout_constraintTop_toBottomOf="@id/icon_settheme"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:id="@+id/set_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setlang"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/orange2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/icon_setlang"
+        app:layout_constraintTop_toTopOf="@id/icon_setlang"
+        app:layout_constraintBottom_toBottomOf="@id/icon_setlang"/>
+
+    <TextView
+        android:id="@+id/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright"
+        android:layout_marginBottom="16dp"
+        android:letterSpacing="0.1"
+        style="@style/tvRegular_Style"
+        android:fontFamily="@font/inter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

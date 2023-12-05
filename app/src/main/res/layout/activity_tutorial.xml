@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tutorial.TutorialActivity">
+
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logokcl" />
+
+    <TextView
+        android:id="@+id/logo_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/darkgrey"
+        android:layout_marginStart="12dp"
+        style="@style/tvTutorial_Style"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/edival"
+        app:layout_constraintBottom_toBottomOf="@+id/logo_image"
+        app:layout_constraintStart_toEndOf="@+id/logo_image"
+        app:layout_constraintTop_toTopOf="@+id/logo_image" />
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        style="@style/tvTutorial_Style"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/skip"
+        app:layout_constraintBottom_toBottomOf="@+id/logo_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toEndOf="@+id/logo_tv"
+        app:layout_constraintTop_toTopOf="@+id/logo_image" />
+
+    <TextView
+        android:id="@+id/buttonPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prev"
+        android:layout_margin="20dp"
+        style="@style/tvTutorial_Style"
+        android:fontFamily="@font/roboto_bold"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/tutorialSliderViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/logo_image"
+        app:layout_constraintBottom_toTopOf="@id/buttonPrev"/>
+
+    <LinearLayout
+        android:id="@+id/indicatorContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/buttonPrev"
+        app:layout_constraintStart_toEndOf="@id/buttonPrev"
+        app:layout_constraintEnd_toStartOf="@id/buttonNext"
+        app:layout_constraintBottom_toBottomOf="@id/buttonPrev"
+        />
+
+    <TextView
+        android:id="@+id/buttonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:layout_margin="20dp"
+        style="@style/tvTutorial_Style"
+        android:fontFamily="@font/roboto_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

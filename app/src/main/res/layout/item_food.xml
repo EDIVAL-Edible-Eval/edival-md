@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cardFoodView"
+    android:layout_gravity="center"
+    android:layout_marginStart="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    card:cardCornerRadius="4dp">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:background="@drawable/bg_inputtext">
+
+        <ImageView
+            android:id="@+id/foodPict"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mangkok"
+            card:layout_constraintStart_toStartOf="parent"
+            card:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/foodName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/foodPict"
+            android:fontFamily="@font/inter"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/darkgrey"
+            card:layout_constraintEnd_toEndOf="parent"
+            card:layout_constraintStart_toEndOf="@+id/foodPict"
+            card:layout_constraintTop_toTopOf="@+id/foodPict"
+            tools:text="Chicken Meatball"
+            android:letterSpacing="0.2"/>
+
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingTop="16dp"
+            card:layout_constraintStart_toEndOf="@id/foodPict"
+            card:layout_constraintTop_toBottomOf="@id/foodName">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/inter"
+                    android:text="Spoiled at :"
+                    android:textColor="@color/darkgrey"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/darkgrey"
+                    android:text="dd/mm/yyyy"
+                    android:textSize="14sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/inter"
+                    android:text="Type :"
+                    android:textColor="@color/darkgrey"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:text="Meat"
+                    android:textColor="@color/darkgrey"
+                    android:textSize="14sp" />
+            </TableRow>
+        </TableLayout>
+
+        <ImageView
+            android:id="@+id/foodTypeImg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/daging"
+            card:layout_constraintBottom_toBottomOf="@+id/tableLayout"
+            card:layout_constraintEnd_toEndOf="parent"
+            card:layout_constraintStart_toEndOf="@+id/tableLayout"
+            card:layout_constraintTop_toTopOf="@+id/tableLayout"
+            card:layout_constraintVertical_bias="0.52" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
