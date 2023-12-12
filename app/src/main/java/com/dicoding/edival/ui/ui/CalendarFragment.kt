@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dicoding.edival.databinding.FragmentCalendarBinding
+import com.dicoding.edival.ui.setting.SettingActivity
 
 class CalendarFragment : Fragment() {
     private lateinit var binding: FragmentCalendarBinding
@@ -21,6 +22,10 @@ class CalendarFragment : Fragment() {
         binding.floatingActionButton.setOnClickListener {
             // Intent untuk beralih ke CreateActivity
             val intent = Intent(activity, CreateActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnSetting.setOnClickListener {
+            val intent = Intent(activity, SettingActivity::class.java)
             startActivity(intent)
         }
         binding.btnNotif.setOnClickListener {

@@ -99,7 +99,7 @@ class TutorialActivity : AppCompatActivity() {
         }
 
         binding.skip.setOnClickListener {
-            Intent(applicationContext, SettingActivity::class.java).also {
+            Intent(applicationContext, LoginActivity::class.java).also {
                 startActivity(it)
             }
         }

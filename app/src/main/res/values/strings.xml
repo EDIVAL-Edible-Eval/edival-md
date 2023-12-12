@@ -69,6 +69,6 @@
     <string name="masa">Lewat Masa Penyimpanan</string>
     <string name="kadaluarsa">Makanan akan segera kadaluarsa!</string>
     <string name="notification">Apel yang kamu simpan pada tanggal 14 Oktober akan segera kadaluarsa, segera olah atau makan bahan makanan tersebut!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="take_photo">Take Photo</string>
 </resources>
