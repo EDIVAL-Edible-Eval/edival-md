@@ -2,6 +2,19 @@
 
     <string name="app_name">Edival</string>
     <string name="edival">EDIVAL</string>
+    <string name="app_description">Edival adalah aplikasi yang didesain untuk meningkatkan produktivitas dalam pengelolaan bahan makanan. Aplikasi ini menawarkan berbagai fitur unggulan, antara lain:
+
+1. Prediksi Kondisi Bahan Makanan:
+   Edival menggunakan model Machine Learning yang dibangun dengan TensorFlow untuk memprediksi apakah suatu bahan makanan sudah mulai membusuk atau masih segar. Dengan informasi ini, pengguna dapat mengelola stok bahan makanan dengan lebih efisien.
+
+2. Rekomendasi Makanan:
+   Tak perlu bingung memilih apa yang ingin dimasak! Edival memberikan rekomendasi makanan beserta daftar bahan dan prosedur pembuatannya. Pengguna dapat menemukan inspirasi baru untuk menyajikan hidangan lezat.
+
+3. Reminder Penyimpanan:
+   Dengan fitur reminder, pengguna dapat menyimpan bahan atau makanan dengan aman dan tanpa risiko lupa. Edival memberikan notifikasi ketika makanan mendekati batas penyimpanannya, sehingga mencegah pemborosan dan memastikan kualitas bahan makanan tetap terjaga.
+
+Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan untuk kehidupan yang lebih sehat dan efisien.</string>
+
     <string name="welkom">Welcome Back!</string>
     <string name="please">Please sign in to continue</string>
     <string name="forgotpw">Forgot password?</string>
