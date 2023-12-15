@@ -10,7 +10,7 @@
         android:id="@+id/backarrow"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/ic_arrow_back"
+        android:src="@drawable/btnback"
         android:layout_margin="25dp"
         android:contentDescription="@string/back"
         app:layout_constraintStart_toStartOf="parent"

@@ -33,6 +33,11 @@ class CalendarFragment : Fragment() {
             val intent = Intent(activity, NotificationActivity::class.java)
             startActivity(intent)
         }
+        binding.btnSetting.setOnClickListener {
+            // Intent untuk beralih ke NotificationActivity
+            val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
         return view
     }
 }

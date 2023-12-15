@@ -18,10 +18,12 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="welkom">Welcome Back!</string>
     <string name="please">Please sign in to continue</string>
     <string name="forgotpw">Forgot password?</string>
-    <string name="noaccount">Don\'t have account? Sign Up</string>
+    <string name="noaccount">Don\'t have account?</string>
     <string name="createacc">Create new account</string>
     <string name="please2">Please sing up to continue</string>
-    <string name="haveaccount">Have an account? Sign In</string>
+    <string name="haveaccount">Have an account?</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
 
     <!-- Tutorial Text Resources -->
     <string name="skip">SKIP</string>
@@ -41,6 +43,7 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="settheme">Theme</string>
     <string name="setlang">Language</string>
     <string name="back">Back</string>
+    <string name="logout">Log Out</string>
 
     <!-- Camera & Result text resources -->
     <string name="select">Select Items</string>
@@ -75,6 +78,7 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="title_calendar">Calendar</string>
     <string name="nameFood">Nama Makanan :</string>
     <string name="penyimpanan">Tempat penyimpanan :</string>
+    <string name="namefood">Nama Makanan :</string>
     <string name="simpan">Disimpan sejak :</string>
     <string name="expire">Tahan hingga :</string>
     <string name="jenis">Jenis makanan :</string>
@@ -82,6 +86,5 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="masa">Lewat Masa Penyimpanan</string>
     <string name="kadaluarsa">Makanan akan segera kadaluarsa!</string>
     <string name="notification">Apel yang kamu simpan pada tanggal 14 Oktober akan segera kadaluarsa, segera olah atau makan bahan makanan tersebut!</string>
-
     <string name="take_photo">Take Photo</string>
 </resources>

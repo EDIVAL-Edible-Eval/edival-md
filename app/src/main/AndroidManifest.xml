@@ -33,10 +33,7 @@
             android:name=".ui.ui.CreateActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.regist.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.setting.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ui.camera.RecommendationActivity"
@@ -44,24 +41,27 @@
         <activity
             android:name=".ui.camera.DetailResultActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.camera.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ui.LandingActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.setting.SettingActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".ui.setting.EditProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.tutorial.TutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.regist.registerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.loginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ui.LandingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ui.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ui.SplashScreen"
@@ -71,7 +71,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"

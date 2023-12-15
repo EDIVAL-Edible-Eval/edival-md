@@ -14,7 +14,7 @@
         android:layout_margin="20dp"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/image_capture_button"
         android:layout_width="110dp"
         android:layout_height="wrap_content"

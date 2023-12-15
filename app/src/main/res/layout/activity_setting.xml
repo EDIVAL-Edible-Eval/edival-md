@@ -10,7 +10,7 @@
         android:id="@+id/backarrow"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_arrow_back"
+        android:src="@drawable/btnback"
         android:layout_margin="25dp"
         android:contentDescription="@string/back"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,79 +57,76 @@
         app:layout_constraintStart_toEndOf="@+id/image_user"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
-    <ImageButton
-        android:id="@+id/icon_setprofile"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/ic_edit_profile"
-        android:contentDescription="@string/setprofile"
-        app:layout_constraintStart_toStartOf="@+id/image_user"
-        app:layout_constraintTop_toBottomOf="@id/image_user"
-        android:background="@android:color/transparent"
-        />
-
-    <TextView
-        android:id="@+id/set_profile"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/setprofile"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/orange2"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/icon_setprofile"
-        app:layout_constraintTop_toTopOf="@id/icon_setprofile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="@id/icon_setprofile"/>
-
-    <ImageButton
-        android:id="@+id/icon_settheme"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:textAllCaps="false"
+        android:textColor="@color/orange1"
+        android:drawableLeft="@drawable/pencil"
+        android:drawablePadding="1dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="132dp"
+        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/settheme"
-        android:src="@drawable/ic_theme"
-        app:layout_constraintStart_toStartOf="@+id/icon_setprofile"
-        app:layout_constraintTop_toBottomOf="@id/icon_setprofile" />
+        app:layout_constraintTop_toBottomOf="@id/image_user"/>
 
-    <TextView
-        android:id="@+id/set_theme"
-        android:layout_width="wrap_content"
+
+    <Button
+        android:id="@+id/btnTheme"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/theme"
+        android:drawablePadding="1dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="132dp"
         android:text="@string/settheme"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/orange2"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/icon_settheme"
-        app:layout_constraintTop_toTopOf="@id/icon_settheme"
-        app:layout_constraintBottom_toBottomOf="@id/icon_settheme"/>
-
-    <ImageButton
-        android:id="@+id/icon_setlang"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/setlang"
-        android:src="@drawable/ic_language"
-        app:layout_constraintStart_toStartOf="@+id/icon_settheme"
-        app:layout_constraintTop_toBottomOf="@id/icon_settheme"
-        android:background="@android:color/transparent"/>
-
-    <TextView
-        android:id="@+id/set_language"
-        android:layout_width="wrap_content"
+        android:textAllCaps="false"
+        android:textColor="@color/orange1"
+        app:layout_constraintEnd_toEndOf="@+id/btnEditProfile"
+        app:layout_constraintStart_toStartOf="@id/btnEditProfile"
+        app:layout_constraintTop_toBottomOf="@id/btnEditProfile"/>
+    <Button
+        android:id="@+id/btnLanguage"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/setlang"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/orange2"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/icon_setlang"
-        app:layout_constraintTop_toTopOf="@id/icon_setlang"
-        app:layout_constraintBottom_toBottomOf="@id/icon_setlang"/>
+        android:textAllCaps="false"
+        android:textColor="@color/orange1"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:drawableLeft="@drawable/language"
+        android:drawablePadding="1dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="132dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="@id/btnTheme"
+        app:layout_constraintStart_toStartOf="@id/btnTheme"
+        app:layout_constraintTop_toBottomOf="@id/btnTheme"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:textAllCaps="false"
+        android:textColor="@color/orange1"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:drawableLeft="@drawable/logout"
+        android:drawablePadding="1dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="132dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@id/btnLanguage"
+        app:layout_constraintEnd_toEndOf="@id/btnLanguage"
+        app:layout_constraintTop_toBottomOf="@id/btnLanguage"/>
 
     <TextView
         android:id="@+id/copyright"

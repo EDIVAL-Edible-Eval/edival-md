@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "932830200046",
+    "project_id": "edival-402305",
+    "storage_bucket": "edival-402305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932830200046:android:ad06c1ba297bd4a8de73ff",
+        "android_client_info": {
+          "package_name": "com.dicoding.edival"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932830200046-7htcuqci60aaeaeoj13gntlfgtecv7sm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.edival",
+            "certificate_hash": "aea743d785cfe3f3610375f3d86b607380e00526"
+          }
+        },
+        {
+          "client_id": "932830200046-b97majd8pbk438vsihmvfd7l269ob8d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQEUeI_0cO0Ar8j2cMu1Czl_i_imacWLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932830200046-b97majd8pbk438vsihmvfd7l269ob8d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -63,7 +63,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/inter"
-        android:text="@string/name"
+        android:text="@string/namefood"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="normal"
@@ -127,7 +127,7 @@
         app:layout_constraintStart_toStartOf="@+id/foodName2"
         app:layout_constraintTop_toBottomOf="@+id/storage2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/simpan2"
         android:layout_width="350dp"
         android:layout_height="48dp"
@@ -156,7 +156,7 @@
         app:layout_constraintStart_toStartOf="@+id/foodName2"
         app:layout_constraintTop_toBottomOf="@+id/simpan2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/exp2"
         android:layout_width="350dp"
         android:layout_height="48dp"
@@ -172,7 +172,7 @@
         app:layout_constraintStart_toStartOf="@id/foodName2"
         app:layout_constraintTop_toBottomOf="@+id/exp1"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSave"
         android:layout_width="350dp"
         android:layout_height="53dp"

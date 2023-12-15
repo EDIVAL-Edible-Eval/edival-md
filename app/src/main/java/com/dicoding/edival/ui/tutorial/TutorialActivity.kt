@@ -3,8 +3,6 @@ package com.dicoding.edival.ui.tutorial
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.controls.ControlsProviderService.TAG
-import android.util.Log
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -14,18 +12,12 @@ import androidx.core.view.get
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.dicoding.edival.R
-import com.dicoding.edival.data.api.response.UserResponse
-import com.dicoding.edival.data.api.retrofit.ApiConfig
 import com.dicoding.edival.data.pref.ThemePreferences
 import com.dicoding.edival.data.pref.dataStore
 import com.dicoding.edival.databinding.ActivityTutorialBinding
-import com.dicoding.edival.ui.login.LoginActivity
-import com.dicoding.edival.ui.setting.SettingActivity
+import com.dicoding.edival.ui.login.loginActivity
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class TutorialActivity : AppCompatActivity() {
 
@@ -80,30 +72,17 @@ class TutorialActivity : AppCompatActivity() {
             if (binding.tutorialSliderViewPager.currentItem + 1 < tutorialSlideAdapter.itemCount) {
                 binding.tutorialSliderViewPager.currentItem += 1
             } else {
-                Intent(applicationContext, LoginActivity::class.java).also {
+                Intent(applicationContext, loginActivity::class.java).also {
                     startActivity(it)
                 }
             }
-
-            val client = ApiConfig.getApiService().getUserProfile(id = "dZz4l4F91Yexz4yN2shBHvoPwzx1")
-            client.enqueue(object : Callback<UserResponse> {
-                override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
-                    Log.println(Log.WARN, "Tes API", response.body().toString())
-                }
-                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                    Log.e(TAG, "onFailure: ${t.message.toString()}")
-                }
-            })
-
-
         }
 
         binding.skip.setOnClickListener {
-            Intent(applicationContext, LoginActivity::class.java).also {
+            Intent(applicationContext, loginActivity::class.java).also {
                 startActivity(it)
             }
         }
-
     }
 
     private fun setupIndicators(){
