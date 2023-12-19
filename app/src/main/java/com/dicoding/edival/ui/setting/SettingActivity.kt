@@ -3,6 +3,7 @@ package com.dicoding.edival.ui.setting
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.edival.data.pref.ThemePreferences
@@ -17,12 +18,30 @@ class SettingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySettingBinding
     private lateinit var auth: FirebaseAuth
+    private val viewModel by viewModels<SettingViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         auth = FirebaseAuth.getInstance()
+
+        viewModel.loadUserData(auth)
+
+        viewModel.user.observe(this){user ->
+            if (user != null) {
+                binding.tvName.text = user.displayName
+                binding.tvEmail.text = user.email
+
+                viewModel.loadUserImage(binding.imageUser, user)
+            }
+        }
+
+        binding.backarrow.setOnClickListener{
+            onBackPressed()
+        }
+
         val pref = ThemePreferences.getInstance(application.dataStore)
         pref.getThemeSetting().onEach { isDarkModeActive ->
             if (isDarkModeActive) {

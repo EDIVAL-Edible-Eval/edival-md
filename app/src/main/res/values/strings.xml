@@ -55,7 +55,7 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="ingredients">Chiken, Lemon</string>
     <string name="phone_num">098761238</string>
     <string name="tv_edit_name">Name</string>
-    <string name="tv_edit_phone">Phone Number</string>
+    <string name="tv_edit_email">Email</string>
     <string name="tv_edit_password">Password</string>
     <string name="save">Save</string>
     <string name="result">Result</string>
@@ -87,4 +87,18 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="kadaluarsa">Makanan akan segera kadaluarsa!</string>
     <string name="notification">Apel yang kamu simpan pada tanggal 14 Oktober akan segera kadaluarsa, segera olah atau makan bahan makanan tersebut!</string>
     <string name="take_photo">Take Photo</string>
+
+    // Change Password
+    <string name="tv_input_pass">Insert Your Password</string>
+    <string name="input_password">Input Password</string>
+    <string name="tv_input_newPass">Insert New Password</string>
+    <string name="new_pw">New Password</string>
+    <string name="confirm_new_pw">Confirm Password</string>
+    <string name="update_pw">Update</string>
+    <string name="pass_edit">Edit Your Password Here</string>
+    <string name="pass_updated">New Password Created!</string>
+    <string name="pass_not_match">Password Not Match!</string>
+    <string name="pass_empty_warn">Password Need To Be Inserted!</string>
+    <string name="pass_wrong">Password Wrong!</string>
+    <string name="pass_too_short">Password Must Be More Than 6 Characters</string>
 </resources>

@@ -28,6 +28,21 @@
         app:layout_constraintTop_toBottomOf="@id/backarrow"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+
+    <ImageView
+        android:id="@+id/edit_profile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="30dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/pencil"
+        app:layout_constraintBottom_toBottomOf="@id/image_user"
+        app:layout_constraintEnd_toEndOf="@id/image_user"
+        app:layout_constraintStart_toEndOf="@id/image_user"
+        app:layout_constraintTop_toBottomOf="@id/image_user"/>
+
     <TextView
         android:id="@+id/tv_edit_name"
         android:layout_width="wrap_content"
@@ -61,11 +76,11 @@
         app:layout_constraintTop_toBottomOf="@id/tv_edit_name" />
 
     <TextView
-        android:id="@+id/tv_edit_phone"
+        android:id="@+id/tv_edit_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/tv_edit_phone"
+        android:text="@string/tv_edit_email"
         android:letterSpacing="0.2"
         app:layout_constraintHorizontal_bias="0.0"
         android:fontFamily="@font/inter"
@@ -75,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
-        android:id="@+id/edit_phone"
+        android:id="@+id/edit_email"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -86,10 +101,11 @@
         style="@style/tvRegular_Style"
         android:paddingStart="10dp"
         android:fontFamily="@font/inter"
-        android:text="@string/phone_num"
+        android:text="@string/email"
+        android:focusableInTouchMode="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_edit_phone" />
+        app:layout_constraintTop_toBottomOf="@id/tv_edit_email" />
 
     <TextView
         android:id="@+id/tv_edit_pass"
@@ -97,13 +113,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
-        android:text="@string/tv_edit_password"
+        android:text="@string/pass_edit"
         android:letterSpacing="0.2"
         style="@style/tvRegular16_Style"
         android:fontFamily="@font/inter"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@id/edit_phone"
-        app:layout_constraintStart_toStartOf="@id/edit_phone"
+        app:layout_constraintTop_toBottomOf="@id/edit_email"
+        app:layout_constraintStart_toStartOf="@id/edit_email"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
@@ -116,6 +132,7 @@
         android:background="@drawable/bg_inputtext"
         android:letterSpacing="0.12"
         android:paddingStart="10dp"
+        android:focusableInTouchMode="false"
         style="@style/tvRegular_Style"
         android:fontFamily="@font/inter"
         android:text="@string/password_edit_part"
@@ -124,12 +141,12 @@
         app:layout_constraintTop_toBottomOf="@id/tv_edit_pass" />
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginTop="90dp"
         style="@style/button_orange_style"
         android:letterSpacing="0.2"
         android:fontFamily="@font/inter"

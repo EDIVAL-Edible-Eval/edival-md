@@ -78,10 +78,10 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
+    //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation ("com.google.firebase:firebase-auth:21.0.3")
 
-    //camerax
     //cameraX
     implementation("androidx.camera:camera-core:1.1.0-beta01")
     implementation("androidx.camera:camera-camera2:1.1.0-beta01")
@@ -89,4 +89,8 @@ dependencies {
     implementation("androidx.camera:camera-video:1.1.0-beta01")
     implementation("androidx.camera:camera-view:1.1.0-beta01")
     implementation("androidx.camera:camera-extensions:1.1.0-beta01")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
 }
