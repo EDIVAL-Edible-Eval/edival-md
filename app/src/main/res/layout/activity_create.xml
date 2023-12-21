@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ui.CreateActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
@@ -151,7 +154,7 @@
         android:id="@+id/btnSave"
         android:layout_width="350dp"
         android:layout_height="53dp"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/bg_button"
         android:fontFamily="@font/inter"
         android:letterSpacing="0.1"
@@ -160,5 +163,53 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exp2" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/txtInputLayout" />
+        <TextView
+            android:id="@+id/typeFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/jenis"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/exp1"
+            app:layout_constraintTop_toBottomOf="@+id/exp2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayout"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/exp2"
+            app:layout_constraintEnd_toEndOf="@id/exp2"
+            app:hintEnabled="false"
+            android:focusableInTouchMode="true"
+            app:layout_constraintTop_toBottomOf="@id/typeFood"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:textColor="@color/darkgrey"
+                android:fontFamily="@font/inter"
+                android:background="@drawable/bg_inputtext"
+                android:hint="Type"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/proBarCreate"
+            style="?android:attr/progressBarStyle"
+            android:progressTint="@color/orange1"
+            android:indeterminateTint="@color/orange1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,190 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ui.DetailActivity">
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btnback" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btnback" />
 
-    <TextView
-        android:id="@+id/foodName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/inter"
-        android:text="Food Name"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/btnFoodPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/btnFoodPhoto" />
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/textView4"
+            app:layout_constraintStart_toEndOf="@id/textView4"
+            app:layout_constraintEnd_toEndOf="@id/btnFoodPhoto"
+            app:layout_constraintTop_toTopOf="@id/textView4"
+            app:srcCompat="@drawable/delete" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:fontFamily="@font/poppins_bold"
-        android:letterSpacing="0.14"
-        android:text="Details"
-        android:textColor="@color/darkgrey"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
-        app:layout_constraintStart_toEndOf="@+id/btnBack"
-        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+        <TextView
+            android:id="@+id/foodName3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/inter"
+            android:text="Food Name"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/btnFoodPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/btnFoodPhoto" />
 
-    <ImageButton
-        android:id="@+id/btnFoodPhoto"
-        android:layout_width="360dp"
-        android:layout_height="273dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:background="@drawable/bg_image1"
-        app:srcCompat="@drawable/plus" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:fontFamily="@font/poppins_bold"
+            android:letterSpacing="0.14"
+            android:text="Details"
+            android:textColor="@color/darkgrey"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
-    <TextView
-        android:id="@+id/foodName1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/inter"
-        android:text="@string/namefood"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/btnFoodPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/foodName3" />
+        <ImageButton
+            android:id="@+id/btnFoodPhoto"
+            android:layout_width="360dp"
+            android:layout_height="273dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:background="@drawable/bg_image1"
+            app:srcCompat="@drawable/plus" />
 
-    <EditText
-        android:id="@+id/foodName2"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_inputtext"
-        android:hint="Jagung"
-        android:letterSpacing="0.12"
-        android:paddingStart="10dp"
-        android:textColor="@color/darkgrey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/btnFoodPhoto"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/btnFoodPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/foodName1" />
+        <TextView
+            android:id="@+id/foodName1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/namefood"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/btnFoodPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/foodName3" />
 
-    <TextView
-        android:id="@+id/storage1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/inter"
-        android:text="@string/penyimpanan"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/foodName2"
-        app:layout_constraintTop_toBottomOf="@+id/foodName2" />
+        <EditText
+            android:id="@+id/foodName2"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_inputtext"
+            android:hint="Jagung"
+            android:letterSpacing="0.12"
+            android:paddingStart="10dp"
+            android:textColor="@color/darkgrey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/btnFoodPhoto"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/btnFoodPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/foodName1" />
 
-    <EditText
-        android:id="@+id/storage2"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_inputtext"
-        android:hint="Brangkas"
-        android:letterSpacing="0.12"
-        android:paddingStart="10dp"
-        android:textColor="@color/darkgrey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/foodName2"
-        app:layout_constraintStart_toStartOf="@id/foodName2"
-        app:layout_constraintTop_toBottomOf="@+id/storage1"/>
+        <TextView
+            android:id="@+id/storage1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/penyimpanan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/foodName2"
+            app:layout_constraintTop_toBottomOf="@+id/foodName2" />
 
-    <TextView
-        android:id="@+id/simpan1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/inter"
-        android:text="@string/simpan"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/foodName2"
-        app:layout_constraintTop_toBottomOf="@+id/storage2" />
+        <EditText
+            android:id="@+id/storage2"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_inputtext"
+            android:hint="Brangkas"
+            android:letterSpacing="0.12"
+            android:paddingStart="10dp"
+            android:textColor="@color/darkgrey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/foodName2"
+            app:layout_constraintStart_toStartOf="@id/foodName2"
+            app:layout_constraintTop_toBottomOf="@+id/storage1"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/simpan2"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_inputtext"
-        android:hint="dd/mm/yy"
-        android:letterSpacing="0.12"
-        android:paddingStart="10dp"
-        android:gravity="left|center_vertical"
-        android:textColor="@color/darkgrey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/foodName2"
-        app:layout_constraintStart_toStartOf="@id/foodName2"
-        app:layout_constraintTop_toBottomOf="@+id/simpan1"/>
+        <TextView
+            android:id="@+id/simpan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/simpan"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/foodName2"
+            app:layout_constraintTop_toBottomOf="@+id/storage2" />
 
-    <TextView
-        android:id="@+id/exp1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/inter"
-        android:text="@string/expire"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/foodName2"
-        app:layout_constraintTop_toBottomOf="@+id/simpan2" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simpan2"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_inputtext"
+            android:hint="dd/mm/yy"
+            android:letterSpacing="0.12"
+            android:fontFamily="@font/inter"
+            android:paddingStart="10dp"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/darkgrey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/foodName2"
+            app:layout_constraintStart_toStartOf="@id/foodName2"
+            app:layout_constraintTop_toBottomOf="@+id/simpan1"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/exp2"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_inputtext"
-        android:hint="dd/mm/yy"
-        android:letterSpacing="0.12"
-        android:paddingStart="10dp"
-        android:textColor="@color/darkgrey"
-        android:gravity="left|center_vertical"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@id/foodName2"
-        app:layout_constraintStart_toStartOf="@id/foodName2"
-        app:layout_constraintTop_toBottomOf="@+id/exp1"/>
+        <TextView
+            android:id="@+id/exp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/expire"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/foodName2"
+            app:layout_constraintTop_toBottomOf="@+id/simpan2" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSave"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_button"
-        android:fontFamily="@font/inter"
-        android:letterSpacing="0.1"
-        android:text="Simpan"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exp2" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/exp2"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_inputtext"
+            android:hint="dd/mm/yy"
+            android:letterSpacing="0.12"
+            android:paddingStart="10dp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/darkgrey"
+            android:gravity="left|center_vertical"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/foodName2"
+            app:layout_constraintStart_toStartOf="@id/foodName2"
+            app:layout_constraintTop_toBottomOf="@+id/exp1"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            android:layout_width="350dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/inter"
+            android:letterSpacing="0.1"
+            android:text="Simpan"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInputLayout" />
+
+        <TextView
+            android:id="@+id/typeFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/jenis"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/exp1"
+            app:layout_constraintTop_toBottomOf="@+id/exp2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayout"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/exp2"
+            app:layout_constraintEnd_toEndOf="@id/exp2"
+            app:hintEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/typeFood"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter"
+                android:background="@drawable/bg_inputtext"
+                android:hint="  Type"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <ProgressBar
+            android:id="@+id/proBarUpdate"
+            style="?android:attr/progressBarStyle"
+            android:progressTint="@color/orange1"
+            android:indeterminateTint="@color/orange1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

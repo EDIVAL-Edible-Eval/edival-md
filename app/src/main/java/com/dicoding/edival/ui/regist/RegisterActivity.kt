@@ -8,11 +8,14 @@ import android.view.View
 import android.widget.Toast
 import com.dicoding.edival.databinding.ActivityRegisterBinding
 import com.dicoding.edival.ui.login.loginActivity
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.firestore
 
 class registerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,28 +31,54 @@ class registerActivity : AppCompatActivity() {
         }
 
         binding.btnSignUp.setOnClickListener {
-            val name = binding.nameETRegist.text.toString()
-            val phone = binding.phoneETRegist.text.toString()
-            val email = binding.emailETRegist.text.toString()
-            val pass = binding.passETRegist.text.toString()
+            val name = binding.nameETRegist.text.toString().trim()
+            val phone = binding.phoneETRegist.text.toString().trim()
+            val email = binding.emailETRegist.text.toString().trim()
+            val pass = binding.passETRegist.text.toString().trim()
 
             if (email.isNotEmpty() && pass.isNotEmpty() && name.isNotEmpty() && phone.isNotEmpty()) {
                 binding.proBarRegist.visibility = View.VISIBLE
-                firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
-                    if (it.isSuccessful) {
+
+                firebaseAuth.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener { task ->
                         binding.proBarRegist.visibility = View.GONE
-                        Toast.makeText(this, "Account Created Successfully" , Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, loginActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        binding.proBarRegist.visibility = View.GONE
-                        Log.e("error: ", it.exception.toString())
+
+                        if (task.isSuccessful) {
+                            val userId = firebaseAuth.currentUser!!.uid
+
+                            val userMap = hashMapOf(
+                                "name" to name,
+                                "phone" to phone,
+                                "email" to email
+                            )
+
+                            db.collection("users").document(userId).set(userMap)
+                                .addOnSuccessListener {
+                                    Toast.makeText(
+                                        this,
+                                        "Account Created Successfully",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    val intent = Intent(this, loginActivity::class.java)
+                                    startActivity(intent)
+                                }.addOnFailureListener {
+                                Toast.makeText(
+                                    this,
+                                    "Failed to save user data to Firestore!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Account creation failed: ${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                }
-
-            }else {
+            } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
             }
         }
     }

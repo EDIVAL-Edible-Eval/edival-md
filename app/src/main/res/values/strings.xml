@@ -43,6 +43,7 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="settheme">Theme</string>
     <string name="setlang">Language</string>
     <string name="back">Back</string>
+
     <string name="logout">Log Out</string>
 
     <!-- Camera & Result text resources -->
@@ -50,12 +51,12 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="recommen">Recommendation</string>
     <string name="title_recommen">Lemon Chicken</string>
     <string name="desc_recommen">Hidangan ayam yang lezat dan segar dengan rasa lemon yang khas. Ayam dimasak bersama dengan saus yang terbuat dari lemon juice, zest (kupasan kulit lemon yang beraroma), bawang putih, mentega, dan rempah-rempah. Hidangan ini memiliki rasa asam dan manis yang seimbang, serta aroma harum lemon yang memikat.</string>
-    <string name="detail_recommen">Bahan</string>
+    <string name="detail_recommen">Ingredient</string>
     <string name="ingredient">Main ingredient</string>
     <string name="ingredients">Chiken, Lemon</string>
     <string name="phone_num">098761238</string>
     <string name="tv_edit_name">Name</string>
-    <string name="tv_edit_email">Email</string>
+    <string name="tv_edit_phone">Phone Number</string>
     <string name="tv_edit_password">Password</string>
     <string name="save">Save</string>
     <string name="result">Result</string>
@@ -77,28 +78,40 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="title_camera">Camera</string>
     <string name="title_calendar">Calendar</string>
     <string name="nameFood">Nama Makanan :</string>
-    <string name="penyimpanan">Tempat penyimpanan :</string>
-    <string name="namefood">Nama Makanan :</string>
-    <string name="simpan">Disimpan sejak :</string>
-    <string name="expire">Tahan hingga :</string>
-    <string name="jenis">Jenis makanan :</string>
+    <string name="penyimpanan">Storage :</string>
+    <string name="namefood">Food Name :</string>
+    <string name="simpan">Saved Since :</string>
+    <string name="expire">Hold up to :</string>
+    <string name="jenis">Food Type :</string>
     <string name="detail">Details :</string>
-    <string name="masa">Lewat Masa Penyimpanan</string>
+    <string name="masa">Past storage period</string>
     <string name="kadaluarsa">Makanan akan segera kadaluarsa!</string>
     <string name="notification">Apel yang kamu simpan pada tanggal 14 Oktober akan segera kadaluarsa, segera olah atau makan bahan makanan tersebut!</string>
     <string name="take_photo">Take Photo</string>
+    <string name="tv_edit_email">email</string>
+    <string name="pass_edit">Password</string>
+    <string name="tv_input_newPass">INPUT NEW PASSWORD</string>
+    <string name="new_pw">new password</string>
+    <string name="confirm_new_pw">confirm password</string>
+    <string name="update_pw">update</string>
+    <string name="tv_input_pass">input password</string>
+    <string name="input_password">password</string>
+    <string name="pass_empty_warn">Field is empty</string>
+    <string name="pass_wrong">Wrong Password</string>
+    <string name="pass_too_short">Password is to short</string>
+    <string name="pass_not_match">Password not match</string>
+    <string name="pass_updated">Password Updated</string>
 
-    // Change Password
-    <string name="tv_input_pass">Insert Your Password</string>
-    <string name="input_password">Input Password</string>
-    <string name="tv_input_newPass">Insert New Password</string>
-    <string name="new_pw">New Password</string>
-    <string name="confirm_new_pw">Confirm Password</string>
-    <string name="update_pw">Update</string>
-    <string name="pass_edit">Edit Your Password Here</string>
-    <string name="pass_updated">New Password Created!</string>
-    <string name="pass_not_match">Password Not Match!</string>
-    <string name="pass_empty_warn">Password Need To Be Inserted!</string>
-    <string name="pass_wrong">Password Wrong!</string>
-    <string name="pass_too_short">Password Must Be More Than 6 Characters</string>
+    <string-array name="foodType">
+        <item>Meat</item>
+        <item>Vegetable</item>
+        <item>Fruit</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="placement">
+        <item>Brangkas</item>
+        <item>Kulkas</item>
+        <item>Fruit</item>
+        <item>Others</item>
+    </string-array>
 </resources>
