@@ -3,6 +3,9 @@ package com.dicoding.edival.ui.ui
 import android.Manifest
 import android.content.ContentValues
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,15 +23,32 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.dicoding.edival.databinding.FragmentCameraBinding
+import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
+import com.google.firebase.ml.common.modeldownload.FirebaseModelManager
+import com.google.firebase.ml.custom.FirebaseCustomLocalModel
+import com.google.firebase.ml.custom.FirebaseCustomRemoteModel
+import com.google.firebase.ml.custom.FirebaseModelDataType
+import com.google.firebase.ml.custom.FirebaseModelInputOutputOptions
+import com.google.firebase.ml.custom.FirebaseModelInputs
+import com.google.firebase.ml.custom.FirebaseModelInterpreter
+import com.google.firebase.ml.custom.FirebaseModelInterpreterOptions
+import org.tensorflow.lite.Interpreter
+import java.io.File
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+
 class CameraFragment : Fragment() {
     private lateinit var binding: FragmentCameraBinding
     private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutor: ExecutorService
+    var interpreter: FirebaseModelInterpreter? = null
+    var modelFile: File? = null
+    var options: FirebaseModelInterpreterOptions? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +80,9 @@ class CameraFragment : Fragment() {
         // Implementasi logika inisialisasi kamera
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
 
+        // download the tflite model and set the interpreter
+        setInterpreter()
+
         cameraProviderFuture.addListener({
             // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
@@ -83,7 +106,7 @@ class CameraFragment : Fragment() {
 
                 // Bind use cases to camera
                 cameraProvider.bindToLifecycle(
-                    requireActivity(), cameraSelector, preview)
+                    requireActivity(), cameraSelector, preview, imageCapture)
 
             } catch(exc: Exception) {
                 Log.e(TAG, "Use case binding failed", exc)
@@ -128,6 +151,10 @@ class CameraFragment : Fragment() {
                         val msg = "Photo capture succeeded: ${output.savedUri}"
                         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
+
+//                        TODO:
+//                        convert image to bitmap and pass it to predict function
+//                        predict(image)
                     }
                 }
             )
@@ -162,6 +189,74 @@ class CameraFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         cameraExecutor.shutdown()
+    }
+
+    private fun setInterpreter() {
+        Log.i("info", "setInterpreter started")
+        val remoteModel = FirebaseCustomRemoteModel.Builder("edival-model").build()
+        val conditions = FirebaseModelDownloadConditions.Builder()
+            .requireWifi()
+            .build()
+        FirebaseModelManager.getInstance().download(remoteModel, conditions)
+            .addOnCompleteListener {
+                // Success.
+                Log.i("Info", "Successfully downloaded model");
+            }
+        val localModel = FirebaseCustomLocalModel.Builder()
+            .setAssetFilePath("detect.tflite")
+            .build()
+        FirebaseModelManager.getInstance().isModelDownloaded(remoteModel)
+            .addOnSuccessListener { isDownloaded ->
+                options =
+                    if (isDownloaded) {
+                        FirebaseModelInterpreterOptions.Builder(remoteModel).build()
+                    } else {
+                        FirebaseModelInterpreterOptions.Builder(localModel).build()
+                    }
+                interpreter = FirebaseModelInterpreter.getInstance(options!!)
+                Log.i("info", "setInterpreter executed")
+            }
+    }
+
+    private fun predict(image: Bitmap) {
+        Log.i("info", "predict started")
+        val bitmap = Bitmap.createScaledBitmap(image, 320, 320, true)
+
+        val batchNum = 0
+        val input = Array(1) { Array(320) { Array(320) { FloatArray(3) } } }
+        for (x in 0..223) {
+            for (y in 0..223) {
+                val pixel = bitmap.getPixel(x, y)
+                // Normalize channel values to [-1.0, 1.0]. This requirement varies by
+                // model. For example, some models might require values to be normalized
+                // to the range [0.0, 1.0] instead.
+                input[batchNum][x][y][0] = ((Color.red(pixel) - 127.5) / 127.5).toFloat()
+                input[batchNum][x][y][1] = ((Color.green(pixel) - 127.5) / 127.5).toFloat()
+                input[batchNum][x][y][2] = ((Color.blue(pixel) - 127.5) / 127.5).toFloat()
+            }
+        }
+        val inputs = FirebaseModelInputs.Builder()
+            .add(input) // add() as many input arrays as your model requires
+            .build()
+        val inputOutputOptions = FirebaseModelInputOutputOptions.Builder()
+            .setInputFormat(0, FirebaseModelDataType.FLOAT32, intArrayOf(1, 224, 224, 3))
+            .setOutputFormat(0, FirebaseModelDataType.FLOAT32, intArrayOf(1, 10))
+            .setOutputFormat(1, FirebaseModelDataType.FLOAT32, intArrayOf(1, 10, 4))
+            .setOutputFormat(2, FirebaseModelDataType.FLOAT32, intArrayOf(1))
+            .setOutputFormat(3, FirebaseModelDataType.FLOAT32, intArrayOf(1, 10))
+            .build()
+        interpreter?.run(inputs, inputOutputOptions)
+            ?.addOnSuccessListener { result ->
+                // ...
+                val output = result.getOutput<Array<FloatArray>>(0)
+                val probabilities = output[0]
+                Log.i("Info", "probability"+probabilities.toString());
+            }
+            ?.addOnFailureListener { e ->
+                // Task failed with an exception
+                // ...
+                Log.i("Info", "error task:"+e);
+            }
     }
 
     companion object {

@@ -1,0 +1,9 @@
+
+FreshApple
+FreshEggplant
+FreshMeat
+FreshOrange
+RottenApple
+RottenEggplant
+RottenMeat
+RottenOrange

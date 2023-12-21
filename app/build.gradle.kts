@@ -40,6 +40,9 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    androidResources {
+        noCompress += "tflite"
+    }
 }
 
 dependencies {
@@ -80,7 +83,8 @@ dependencies {
 
     //firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
-    implementation ("com.google.firebase:firebase-auth:21.0.3")
+    implementation("com.google.firebase:firebase-auth:21.0.3")
+    implementation("com.google.firebase:firebase-ml-model-interpreter:22.0.3")
 
     //cameraX
     implementation("androidx.camera:camera-core:1.1.0-beta01")
