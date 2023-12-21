@@ -39,6 +39,7 @@ android {
     buildFeatures{
         viewBinding = true
         buildConfig = true
+        mlModelBinding = true
     }
 }
 
@@ -46,6 +47,8 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore:24.10.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-ml-common:22.1.2")
+    implementation("org.tensorflow:tensorflow-lite-support:0.1.0")
+    implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
     val fragment_version = "1.6.2"
 
     implementation("androidx.core:core-ktx:1.12.0")
