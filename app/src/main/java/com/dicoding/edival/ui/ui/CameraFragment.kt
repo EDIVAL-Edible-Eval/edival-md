@@ -6,6 +6,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -33,10 +34,12 @@ import android.widget.Toast
 //import androidx.camera.core.ImageCapture
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+
 import androidx.fragment.app.Fragment
 import com.dicoding.edival.R
 import com.dicoding.edival.databinding.FragmentCameraBinding
 import com.dicoding.edival.ml.Detect
+import com.dicoding.edival.ui.camera.ResultActivity
 //import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
 //import com.google.firebase.ml.common.modeldownload.FirebaseModelManager
 //import com.google.firebase.ml.custom.FirebaseCustomLocalModel
@@ -85,6 +88,9 @@ class CameraFragment : Fragment() {
     lateinit var handler: Handler
     lateinit var textureView: TextureView
     private lateinit var imageView: ImageView
+
+    private var capturedPhotoPath: String? = null
+
     ////
 
     override fun onCreateView(
@@ -105,6 +111,10 @@ class CameraFragment : Fragment() {
             ActivityCompat.requestPermissions(
                 requireActivity(), REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
             )
+        }
+
+        binding.backarrow.setOnClickListener {
+            requireActivity().onBackPressed()
         }
 
         /////
@@ -177,7 +187,11 @@ class CameraFragment : Fragment() {
     private fun capture() {
         pausePredict = true
         saveBitmapImage(result)
-        // TODO: NAVIGATE TO RESULT PAGE AND PASS THE detectedFood variable. The annotated image can be found in Pictures/Edival/
+
+        val intent = Intent(requireContext(), ResultActivity::class.java)
+        intent.putExtra("capturedPhotoPath", capturedPhotoPath)
+        intent.putStringArrayListExtra("detectedFoodList", ArrayList(detectedFood))
+        startActivity(intent)
     }
 
     private fun saveBitmapImage(bitmap: Bitmap) {
@@ -199,6 +213,7 @@ class CameraFragment : Fragment() {
                         try {
                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
                             outputStream.close()
+                            capturedPhotoPath = uri.toString()
                         } catch (e: Exception) {
                             Log.e(TAG, "saveBitmapImage: ", e)
                         }
@@ -223,6 +238,9 @@ class CameraFragment : Fragment() {
                 try {
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
                     outputStream.close()
+                    capturedPhotoPath = imageFile.absolutePath
+
+
                 } catch (e: Exception) {
                     Log.e(TAG, "saveBitmapImage: ", e)
                 }

@@ -69,9 +69,7 @@
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="8dp"
         android:text="@string/food_name"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
+        style="@style/tvSubTitle_Style"
         app:layout_constraintTop_toBottomOf="@id/image_recommen"
         app:layout_constraintStart_toStartOf="@id/image_recommen"
         />
@@ -81,8 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/recomm_type"
-        android:textColor="@color/black"
-        android:textSize="18dp"
+        style="@style/tvRegular_Style"
         app:layout_constraintTop_toBottomOf="@id/foodName"
         app:layout_constraintStart_toStartOf="@id/foodName"
         />

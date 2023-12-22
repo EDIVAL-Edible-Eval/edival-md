@@ -62,11 +62,6 @@ class SettingActivity : AppCompatActivity() {
             showThemeSetting.show(supportFragmentManager, "theme pop up")
         }
 
-        binding.btnLanguage.setOnClickListener {
-            val showThemeSetting = LanguageSetFragment()
-            showThemeSetting.show(supportFragmentManager, "language pop up")
-        }
-
         binding.btnLogout.setOnClickListener{
             val intent = Intent(this, loginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

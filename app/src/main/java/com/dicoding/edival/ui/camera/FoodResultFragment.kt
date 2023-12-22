@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.edival.R
 
 class FoodResultFragment : DialogFragment() {
@@ -22,24 +24,16 @@ class FoodResultFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnFood1 = view.findViewById<Button>(R.id.food1)
-        val btnFood2 = view.findViewById<Button>(R.id.food2)
-        val btnFood3 = view.findViewById<Button>(R.id.food3)
+        val recyclerView: RecyclerView = view.findViewById(R.id.rv_main)
+        val detectedFoodList = arguments?.getStringArrayList("detectedFoodList") ?: emptyList()
 
-        btnFood1.setOnClickListener {
-            Toast.makeText(requireContext(), "Food 1", Toast.LENGTH_LONG).show()
+        val foodResultAdapter = FoodResultAdapter(detectedFoodList) { selectedFood ->
+            Toast.makeText(requireContext(), selectedFood, Toast.LENGTH_LONG).show()
             dismiss()
         }
 
-        btnFood2.setOnClickListener {
-            Toast.makeText(requireContext(), "Food 2", Toast.LENGTH_LONG).show()
-            dismiss()
-        }
-
-        btnFood3.setOnClickListener {
-            Toast.makeText(requireContext(), "Food 3", Toast.LENGTH_LONG).show()
-            dismiss()
-        }
+        recyclerView.adapter = foodResultAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
 }

@@ -3,6 +3,7 @@ package com.dicoding.edival.ui.camera
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import com.dicoding.edival.databinding.ActivityDetailResultBinding
 
 class DetailResultActivity : AppCompatActivity() {
@@ -13,10 +14,20 @@ class DetailResultActivity : AppCompatActivity() {
         binding = ActivityDetailResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rvReview.setOnClickListener{
-            Intent(applicationContext, RecommendationActivity::class.java).also {
-                startActivity(it)
-            }
+        val capturedPhotoPath = intent.getStringExtra("capturedPhotoPath")
+        val detectedFoodList = intent.getStringArrayListExtra("detectedFoodList")
+
+        binding.backarrow.setOnClickListener {
+            onBackPressed()
         }
+
+        // Load the image from the capturedPhotoPath and set it in binding.imageRecommen
+        Glide.with(this)
+            .load(capturedPhotoPath)
+            .into(binding.imageRecommen)
+
+        // Set the detected food label in the foodName TextView
+        binding.foodName.text = detectedFoodList?.getOrNull(0) ?: "Tidak Terdeteksi Makanan"
+
     }
 }

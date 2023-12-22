@@ -2,11 +2,18 @@ package com.dicoding.edival.ui.camera
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dicoding.edival.R
+import com.dicoding.edival.databinding.ActivityRecommendationBinding
 
 class RecommendationActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRecommendationBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recommendation)
+        binding = ActivityRecommendationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.backarrow.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
