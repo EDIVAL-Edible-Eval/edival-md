@@ -128,11 +128,11 @@ class DetailActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 if (document != null && document.exists()) {
                     val name = document.getString("name")
-                    val storage = document.getString("storage")
-                    val store = document.getString("store")
-                    val exp = document.getString("exp")
+                    val storage = document.getString("storage_type")
+                    val store = document.getString("store_date")
+                    val exp = document.getString("exp_date")
                     val type = document.getString("type")
-                    val imageUrl = document.getString("imageUrl")
+                    val imageUrl = document.getString("img_path")
 
                     // Tampilkan data pada UI
                     binding.foodName3.text = name
@@ -163,15 +163,15 @@ class DetailActivity : AppCompatActivity() {
 
         val today = Calendar.getInstance().time
 
-        val value = if (expDate.before(today) || expDate == today) "rotten" else "good"
+        val value = if (expDate.before(today) || expDate == today) "rotten" else "fresh"
 
         val updatedData: Map<String, Any> = hashMapOf(
             "name" to binding.foodName2.text.toString(),
-            "storage" to binding.storage2.text.toString(),
-            "store" to binding.simpan2.text.toString(),
-            "exp" to binding.exp2.text.toString(),
+            "storage_type" to binding.storage2.text.toString(),
+            "store_date" to binding.simpan2.text.toString(),
+            "exp_date" to binding.exp2.text.toString(),
             "type" to binding.autoComplete.text.toString(),
-            "listed" to value
+            "status" to value
             // Tambahkan kolom lainnya jika ada
         )
 
@@ -205,7 +205,7 @@ class DetailActivity : AppCompatActivity() {
     private fun updateImageUrlToFirestore(imageUrl: String, documentId: String) {
         val userId = firebaseAuth.currentUser!!.uid
         val updatedData: Map<String, Any> = hashMapOf(
-            "imageUrl" to imageUrl
+            "img_path" to imageUrl
         )
 
         db.collection("users").document(userId).collection("reminders").document(documentId)

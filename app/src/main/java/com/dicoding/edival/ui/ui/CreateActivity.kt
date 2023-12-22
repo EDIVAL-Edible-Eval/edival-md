@@ -114,16 +114,16 @@ class CreateActivity : AppCompatActivity() {
                     newId = lastDocument.getLong("documentId")?.toInt() ?: 0
                     newId++ // Increment ID untuk dokumen baru
                 }
-                val value = if (expDate.before(today) || expDate == today) "rotten" else "good"
+                val value = if (expDate.before(today) || expDate == today) "rotten" else "fresh"
                 val foodMap = hashMapOf(
                     "documentId" to newId,
                     "name" to fName,
-                    "storage" to fStorage,
-                    "store" to fStore,
-                    "exp" to fExp,
+                    "storage_type" to fStorage,
+                    "store_date" to fStore,
+                    "exp_date" to fExp,
                     "type" to fType,
-                    "listed" to value,
-                    "imageUrl" to imageUrl
+                    "status" to value,
+                    "img_path" to imageUrl
                 )
                 val userId = firebaseAuth.currentUser!!.uid
 

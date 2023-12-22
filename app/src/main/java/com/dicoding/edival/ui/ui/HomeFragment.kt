@@ -67,8 +67,8 @@ class HomeFragment : Fragment() {
         val docRef = db.collection("users")
             .document(userId)
             .collection("reminders")
-            .whereGreaterThanOrEqualTo("exp", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(startDate))
-            .whereLessThanOrEqualTo("exp", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(endDate))
+            .whereGreaterThanOrEqualTo("exp_date", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(startDate))
+            .whereLessThanOrEqualTo("exp_date", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(endDate))
 
         binding.rvMain.layoutManager = LinearLayoutManager(activity)
         reminderList = arrayListOf()
@@ -102,8 +102,8 @@ class HomeFragment : Fragment() {
         val docRef = db.collection("users")
             .document(userId)
             .collection("reminders")
-            .whereGreaterThanOrEqualTo("exp", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(startDate))
-            .whereLessThanOrEqualTo("exp", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(endDate))
+            .whereGreaterThanOrEqualTo("exp_date", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(startDate))
+            .whereLessThanOrEqualTo("exp_date", SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(endDate))
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
@@ -119,7 +119,7 @@ class HomeFragment : Fragment() {
             .document(userId)
             .collection("reminders")
             .whereEqualTo("type", "Fruit")
-            .whereEqualTo("listed", "good")
+            .whereEqualTo("status", "fresh")
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
@@ -134,7 +134,7 @@ class HomeFragment : Fragment() {
             .document(userId)
             .collection("reminders")
             .whereEqualTo("type", "Meat")
-            .whereEqualTo("listed", "good")
+            .whereEqualTo("status", "fresh")
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
@@ -149,7 +149,7 @@ class HomeFragment : Fragment() {
             .document(userId)
             .collection("reminders")
             .whereEqualTo("type", "Others")
-            .whereEqualTo("listed", "good")
+            .whereEqualTo("status", "fresh")
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
@@ -164,7 +164,7 @@ class HomeFragment : Fragment() {
             .document(userId)
             .collection("reminders")
             .whereEqualTo("type", "Vegetable")
-            .whereEqualTo("listed", "good")
+            .whereEqualTo("status", "fresh")
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
@@ -178,7 +178,7 @@ class HomeFragment : Fragment() {
         val docRef = db.collection("users")
             .document(userId)
             .collection("reminders")
-            .whereEqualTo("listed", "good")
+            .whereEqualTo("status", "fresh")
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
@@ -193,7 +193,7 @@ class HomeFragment : Fragment() {
         val docRef = db.collection("users")
             .document(userId)
             .collection("reminders")
-            .whereEqualTo("listed", "rotten")
+            .whereEqualTo("status", "rotten")
 
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()

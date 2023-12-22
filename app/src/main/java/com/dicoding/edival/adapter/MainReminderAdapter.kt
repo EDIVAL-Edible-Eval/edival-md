@@ -36,10 +36,10 @@ class MainReminderAdapter(private val reminderList: List<Reminder>) : RecyclerVi
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentReminder = reminderList[position]
         holder.Name.text = currentReminder.name
-        holder.Spoiled.text = currentReminder.exp
+        holder.Spoiled.text = currentReminder.exp_date
         holder.Type.text = currentReminder.type
         Glide.with(holder.itemView.context)
-            .load(currentReminder.imageUrl)
+            .load(currentReminder.img_path)
             .into(holder.imageView)
 
         when (currentReminder.type) {

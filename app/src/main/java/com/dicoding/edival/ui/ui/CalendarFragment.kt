@@ -60,11 +60,11 @@ class CalendarFragment : Fragment() {
 
 // Query untuk data yang belum dilewati
         val futureQuery = db.collection("users").document(userId)
-            .collection("reminders").whereGreaterThan("exp", "$currentYear-$currentMonth-$currentDay")
+            .collection("reminders").whereGreaterThan("exp_date", "$currentYear-$currentMonth-$currentDay")
 
 // Query untuk data yang sudah dilewati
         val pastQuery = db.collection("users").document(userId)
-            .collection("reminders").whereLessThanOrEqualTo("exp", "$currentYear-$currentMonth-$currentDay")
+            .collection("reminders").whereLessThanOrEqualTo("exp_date", "$currentYear-$currentMonth-$currentDay")
 
         binding.rvMain.layoutManager = LinearLayoutManager(activity)
         binding.rvMai2.layoutManager = LinearLayoutManager(activity)
@@ -76,8 +76,8 @@ class CalendarFragment : Fragment() {
         futureQuery.get().addOnSuccessListener { querySnapshot ->
             for (document in querySnapshot.documents) {
                 val reminder: Reminder = document.toObject(Reminder::class.java)!!
-                if (!document.contains("listed")) {
-                    document.reference.update("listed", "good")
+                if (!document.contains("status")) {
+                    document.reference.update("status", "fresh")
                 }
                 reminderList.add(reminder)
             }
@@ -91,7 +91,7 @@ class CalendarFragment : Fragment() {
         pastQuery.get().addOnSuccessListener { querySnapshot ->
             for (document in querySnapshot.documents) {
                 val reminder: Reminder = document.toObject(Reminder::class.java)!!
-                document.reference.update("listed", "rotten")
+                document.reference.update("status", "rotten")
                 reminderPastList.add(reminder)
             }
             adapterPast = ReminderPastAdapter(reminderPastList)
