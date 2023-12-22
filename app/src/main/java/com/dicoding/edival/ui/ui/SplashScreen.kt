@@ -10,7 +10,6 @@ import com.dicoding.edival.R
 import com.dicoding.edival.data.pref.ThemePreferences
 import com.dicoding.edival.data.pref.dataStore
 import com.dicoding.edival.databinding.ActivitySplashScreenBinding
-import com.dicoding.edival.ui.tutorial.TutorialActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -43,7 +42,7 @@ class SplashScreen : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         } else {
             // Pengguna belum login, arahkan ke TutorialActivity
-            startActivity(Intent(this, TutorialActivity::class.java))
+            startActivity(Intent(this, LandingActivity::class.java))
         }
         finish()
     }

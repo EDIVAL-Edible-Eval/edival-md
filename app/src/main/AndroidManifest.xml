@@ -56,7 +56,6 @@
         <activity
             android:name=".ui.login.loginActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.ui.LandingActivity"
             android:exported="false" />

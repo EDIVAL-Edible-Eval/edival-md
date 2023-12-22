@@ -183,7 +183,7 @@ class HomeFragment : Fragment() {
         docRef.get().addOnSuccessListener { documents ->
             val count = documents.size()
             binding.good.text = count.toString()
-            binding.progressBar.setProgress(count)
+            binding.progressBar.setProgress(101-count)
         }.addOnFailureListener { exception ->
             Log.e("Firestore", "Error getting documents: ", exception)
         }

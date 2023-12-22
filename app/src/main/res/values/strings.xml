@@ -101,6 +101,10 @@ Edival, teman setia Anda dalam merencanakan dan mengelola persediaan makanan unt
     <string name="pass_too_short">Password is to short</string>
     <string name="pass_not_match">Password not match</string>
     <string name="pass_updated">Password Updated</string>
+    <string name="landing">Your Food Freshness Expert. Predicts quality, enhances health, and simplifies meal choices with cutting-edge AI technology</string>
+    <string name="the">The </string>
+    <string name="descNotif"> that you stored on  </string>
+    <string name="immidietly">will expire soon, please process or eat the food immediately.</string>
 
     <string-array name="foodType">
         <item>Meat</item>

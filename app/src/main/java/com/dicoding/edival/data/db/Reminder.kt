@@ -11,7 +11,8 @@ data class Reminder(
     var type: String? = null,
     var img_path: String? = null,
     var status: String? = null,
+    var desc: String? = null,
     var documentId: Long
 ){
-    constructor() : this(null, null, null, null, null, null,null, 0L)
+    constructor() : this(null, null, null, null, null, null,null,null, 0L)
 }

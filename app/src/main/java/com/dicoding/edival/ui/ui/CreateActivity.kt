@@ -96,6 +96,7 @@ class CreateActivity : AppCompatActivity() {
         val fExp = binding.exp2.text.toString().trim()
         val fType = binding.autoComplete.text.toString().trim()
 
+
         val today = Calendar.getInstance()
         val expDate = Calendar.getInstance()
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.US)
@@ -125,9 +126,17 @@ class CreateActivity : AppCompatActivity() {
                     "status" to value,
                     "img_path" to imageUrl
                 )
-                val userId = firebaseAuth.currentUser!!.uid
-
-                db.collection("users").document(userId).collection("reminders").add(foodMap)
+                val fDesc = ("The $fName that you stored on $fStore will expire soon, please proccess, or eat that immidiatly!")
+                val foodMap2 = hashMapOf(
+                    "documentId" to newId,
+                    "name" to fName,
+                    "exp_date" to fExp,
+                    "desc" to fDesc
+                )
+                if(expDate.after(today)){
+                    db.collection("users").document(firebaseAuth.currentUser!!.uid).collection("notification").add(foodMap2)
+                }
+                db.collection("users").document(firebaseAuth.currentUser!!.uid).collection("reminders").add(foodMap)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Successfully Added!", Toast.LENGTH_SHORT).show()
                         binding.foodName2.text.clear()
@@ -143,7 +152,7 @@ class CreateActivity : AppCompatActivity() {
                         Log.w("Firestore", "Error getting documents: ", exception)
                         Toast.makeText(this, "Failed to retrieve ID!", Toast.LENGTH_SHORT).show()
                     }
-                }.addOnFailureListener {
+            }.addOnFailureListener {
                 Toast.makeText(this, "Failed to upload data", Toast.LENGTH_SHORT).show()
             }
     }
