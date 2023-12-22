@@ -1,8 +1,6 @@
 package com.dicoding.edival.ui.ui
 
 import android.Manifest
-//import android.R.attr.height
-//import android.R.attr.width
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
@@ -30,22 +28,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-//import androidx.camera.core.ImageCapture
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.dicoding.edival.R
 import com.dicoding.edival.databinding.FragmentCameraBinding
 import com.dicoding.edival.ml.Detect
-//import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
-//import com.google.firebase.ml.common.modeldownload.FirebaseModelManager
-//import com.google.firebase.ml.custom.FirebaseCustomLocalModel
-//import com.google.firebase.ml.custom.FirebaseCustomRemoteModel
-//import com.google.firebase.ml.custom.FirebaseModelDataType
-//import com.google.firebase.ml.custom.FirebaseModelInputOutputOptions
-//import com.google.firebase.ml.custom.FirebaseModelInputs
-//import com.google.firebase.ml.custom.FirebaseModelInterpreter
-//import com.google.firebase.ml.custom.FirebaseModelInterpreterOptions
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.ImageProcessor
@@ -54,29 +42,22 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-//import java.math.BigDecimal
-//import java.math.RoundingMode
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.util.Arrays
-//import java.util.concurrent.ExecutorService
 
 
 class CameraFragment : Fragment() {
     private lateinit var binding: FragmentCameraBinding
-//    private var imageCapture: ImageCapture? = null
-//    private lateinit var cameraExecutor: ExecutorService
-//    var interpreter: FirebaseModelInterpreter? = null
-//    var options: FirebaseModelInterpreterOptions? = null
 
     ////
     private lateinit var labels: List<String>
     private lateinit var model: Detect
-    private var colors = listOf(Color.BLUE, Color.GREEN, Color.RED, Color.CYAN, Color.GRAY, Color.BLACK, Color.DKGRAY, Color.MAGENTA, Color.YELLOW, Color.RED)
+    private var colors = listOf(Color.GREEN, Color.RED)
     private val paint = Paint()
     private lateinit var imageProcessor: ImageProcessor
     lateinit var bitmap: Bitmap
-    private lateinit var result: Bitmap
+    lateinit var result: Bitmap                         // INFO: photo that have been annotated by model
     private var pausePredict: Boolean = false
     lateinit var detectedFood: List<String>             // INFO: List of detected foods that will be used in Result Page
     private lateinit var detectedFoodMap: MutableMap<String,Int>
@@ -99,17 +80,15 @@ class CameraFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Request camera permissions
-        if (allPermissionsGranted()) {
-//            startCamera()
-        } else {
+        if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 requireActivity(), REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
             )
         }
 
-        /////
         pausePredict = false
         labels = FileUtil.loadLabels(this.requireContext(), "labelmap.txt")
+//        Log.i("Labels", labels.toString())
         imageProcessor = ImageProcessor.Builder().add(ResizeOp(320, 320, ResizeOp.ResizeMethod.BILINEAR)).build()
         model = Detect.newInstance(this.requireContext())
         val handlerThread = HandlerThread("videoThread")
@@ -139,12 +118,9 @@ class CameraFragment : Fragment() {
             }
         }
         cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-        /////
 
         // Set up the listeners for take photo and video capture buttons
         binding.imageCaptureButton.setOnClickListener { capture() }
-
-//        cameraExecutor = Executors.newSingleThreadExecutor()
     }
 
     @SuppressLint("MissingPermission")
@@ -242,9 +218,6 @@ class CameraFragment : Fragment() {
         val initialWidth = bitmap.width
         val initialHeight = bitmap.height
         bitmap = Bitmap.createScaledBitmap(bitmap, 320, 320, true)
-//                var byteBuffer = ByteBuffer.allocate(bitmap.byteCount)
-//                bitmap.copyPixelsToBuffer(byteBuffer)
-//                byteBuffer.rewind()
         val byteBuffer = ByteBuffer.allocateDirect(3 * 320 * 320 * 4)
         byteBuffer.order(ByteOrder.nativeOrder())
 
@@ -254,14 +227,15 @@ class CameraFragment : Fragment() {
 
         for (pixel in pixels) {
             // Extract RGB channels and discard alpha channel
-            byteBuffer.put((pixel shr 16 and 0xFF).toByte()) // Red
-            byteBuffer.put((pixel shr 8 and 0xFF).toByte()) // Green
-            byteBuffer.put((pixel and 0xFF).toByte()) // Blue
+            byteBuffer.putFloat(((pixel shr 16 and 0xFF)-127.5f)/127.5f) // Red
+            byteBuffer.putFloat(((pixel shr 8 and 0xFF)-127.5f)/127.5f) // Green
+            byteBuffer.putFloat(((pixel and 0xFF)-127.5f)/127.5f) // Blue
         }
 
         // Creates inputs for reference.
         val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 320, 320, 3), DataType.FLOAT32)
         inputFeature0.loadBuffer(byteBuffer)
+//        Log.i("bytebuffer", byteBuffer.capacity().toString())
 
         // Runs model inference and gets result.
         val outputs = model.process(inputFeature0)
@@ -269,10 +243,10 @@ class CameraFragment : Fragment() {
         val outputFeature1 = outputs.outputFeature1AsTensorBuffer.floatArray   // bounding box
         val outputFeature2 = outputs.outputFeature2AsTensorBuffer.floatArray   // number of detection
         val outputFeature3 = outputs.outputFeature3AsTensorBuffer.floatArray   // classes
-        Log.i("Confidence", Arrays.toString(outputFeature0))
-        Log.i("Box", Arrays.toString(outputFeature1))
-        Log.i("NumDetection", Arrays.toString(outputFeature2))
-        Log.i("ClassIdx", Arrays.toString(outputFeature3))
+//        Log.i("Confidence", Arrays.toString(outputFeature0))
+//        Log.i("Box", Arrays.toString(outputFeature1))
+//        Log.i("NumDetection", Arrays.toString(outputFeature2))
+//        Log.i("ClassIdx", Arrays.toString(outputFeature3))
 
         val mutable = bitmap.copy(Bitmap.Config.ARGB_8888, true)
         val canvas = Canvas(mutable)
@@ -286,19 +260,20 @@ class CameraFragment : Fragment() {
             x = index
             x *= 4
             if (f1 > 0.5) {
-                paint.color = colors[index]
+                var label = labels[(outputFeature3[index].toInt()-2).coerceAtLeast(0)]
+                // set color
+                paint.color = if (label.contains("fresh", true)) colors[0] else colors[1]
                 // draw box
                 paint.style = Paint.Style.STROKE
                 canvas.drawRect(RectF(outputFeature1[x+1]*w, outputFeature1[x]*h, outputFeature1[x+3]*w, outputFeature1[x+2]*h), paint)
                 // label naming
-                var label = labels[outputFeature3[index].toInt()]
                 detectedFoodMap[label] = detectedFoodMap.getOrDefault(label, 0) + 1
                 label += detectedFoodMap[label]
                 detectedFood += label
-//                Log.i("DetectedFood", detectedFood.toString())
+                Log.i("DetectedFood", detectedFood.toString())
                 // draw label and confidence level
                 paint.style = Paint.Style.FILL
-                canvas.drawText(labels[outputFeature3[index].toInt()] +" "+ "%.3f".format(outputFeature0[index]), outputFeature1[x+1]*w, outputFeature1[x]*h, paint)
+                canvas.drawText(label +" "+ "%.3f".format(outputFeature0[index]), outputFeature1[x+1]*w, outputFeature1[x]*h, paint)
             }
         }
         result = Bitmap.createScaledBitmap(mutable, initialWidth, initialHeight, true)
@@ -315,9 +290,7 @@ class CameraFragment : Fragment() {
         requestCode: Int, permissions: Array<String>, grantResults:
         IntArray) {
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-//                startCamera()
-            } else {
+            if (!allPermissionsGranted()) {
                 Toast.makeText(
                     requireContext(),
                     "Permissions not granted by the user.",
@@ -331,7 +304,6 @@ class CameraFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         model.close()
-//        cameraExecutor.shutdown()
     }
 
     companion object {
